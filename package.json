@@ -1,0 +1,27 @@
+{
+  "name": "fulstack-backend-zero-to-hero",
+  "version": "1.0.0",
+  "description": "I am learning Fullstack Back-End",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kiethohoai/nodejs-zero-to-hero.git"
+  },
+  "keywords": [
+    "nodejs",
+    "react"
+  ],
+  "author": "David Ho",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kiethohoai/nodejs-zero-to-hero/issues"
+  },
+  "homepage": "https://github.com/kiethohoai/nodejs-zero-to-hero#readme",
+  "dependencies": {
+    "express": "4.18.2"
+  }
+}
