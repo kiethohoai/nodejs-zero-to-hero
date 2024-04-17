@@ -18,6 +18,8 @@ app.listen(port, hostname, () => {
    console.log(`App listening on port ${port}`);
 });
 
+//Update MVC
+
 ////////////////////// BACK UP //////////////////////////
 //Config template engine + static files Original
 //app.set("views", path.join(__dirname, "views"));
