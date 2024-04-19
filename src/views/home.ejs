@@ -4,8 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello NodeJS</title>
-    <link rel="stylesheet" href="/css/reset.css">
+    <title>Homepage</title>
     <link rel="stylesheet" href="/css/style.css">
 </head>
 
@@ -18,7 +17,7 @@
     </div>
 
     <div class="form-add-new">
-        <form action="/create-user" method="POST">
+        <form method="POST" action="/create-user">
             <fieldset>
                 <legend>Add New</legend>
                 <div class="input-group">
@@ -27,7 +26,7 @@
                 </div>
                 <div class="input-group">
                     <label for="">Name: </label>
-                    <input type="text" name="myname" id="">
+                    <input type="text" name="name" id="">
                 </div>
                 <div class="input-group">
                     <label for="">City: </label>
@@ -37,7 +36,6 @@
                     <button>Save</button>
                 </div>
             </fieldset>
-
         </form>
 
     </div>

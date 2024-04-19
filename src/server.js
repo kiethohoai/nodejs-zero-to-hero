@@ -6,9 +6,13 @@ const webRouter = require("./routes/web");
 const mysql = require("mysql2");
 const connection = require("./config/database");
 
-//#0 Config ENV
+//Config ENV
 const port = process.env.PORT;
 const hostname = process.env.HOST_NAME;
+
+//Config req.body (Conver Form Data to Object and Send to Server)
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 //Config ViewEngine
 configViewEngine(app);
