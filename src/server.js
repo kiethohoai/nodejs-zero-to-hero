@@ -3,28 +3,30 @@ const express = require("express");
 const app = express();
 const configViewEngine = require("./config/viewEngine");
 const webRouter = require("./routes/web");
+const mysql = require("mysql2");
 const connection = require("./config/database");
 
-//#0 Config env
+//#0 Config ENV
 const port = process.env.PORT;
 const hostname = process.env.HOST_NAME;
-//#1 Config ViewEngine
+
+//Config ViewEngine
 configViewEngine(app);
 
-//#2 Config Router
+//Config Router
 app.use("/", webRouter);
 
-//3 Connect to DB and Dosomething with DB
+//CREATE CONNECTION TO THE DATABASE
+
+// query TO THE DATABASE, GET DATA
 connection.query("SELECT * FROM Users u", function (err, results, fields) {
-   console.log(results);
+   // console.log(results);
 });
 
 //PORT listening
 app.listen(port, hostname, () => {
    console.log(`App listening on port ${port}`);
 });
-
-//Update MVC
 
 ////////////////////// BACK UP //////////////////////////
 //Config template engine + static files Original
@@ -43,12 +45,21 @@ app.listen(port, hostname, () => {
 //    res.render("sample.ejs");
 // });
 
-// Create the connection to database
-// const mysql = require("mysql2");
+//TEST CREAT CONNECTION TO THE DATABASE
 // const connection = mysql.createConnection({
-//    host: "localhost",
-//    port: 3307, //default 3306
-//    user: "root", //default password empty
-//    password: "123456",
-//    database: "hohoaikiet",
+//    host: process.env.DB_HOST,
+//    port: process.env.DB_PORT,
+//    user: process.env.DB_USER,
+//    password: process.env.DB_PASSWORD,
+//    database: process.env.DB_DATABASE,
 // });
+
+// // query TO THE DATABASE, GET DATA
+// connection.query("SELECT * FROM Users u", function (err, results, fields) {
+//    // console.log(results);
+//    // console.log(fields);
+// });
+
+//Config req.body
+// app.use(express.json());
+// app.use(express.urlencoded({ extended: true }));
