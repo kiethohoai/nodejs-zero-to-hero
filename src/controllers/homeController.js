@@ -9,11 +9,28 @@ const getNewsPage = (req, res) => {
 };
 
 const postCreateUser = (req, res) => {
-   console.log(
-      "🚀 ~ file: homeController.js:12 ~ postCreateUser ~ req.body:",
-      req.body
+   //Get data at form and use it
+   let { email, name, city } = req.body;
+   console.log("🚀  file: homeController.js:14  email:", email);
+   console.log("🚀  file: homeController.js:14  name:", name);
+   console.log("🚀  file: homeController.js:14  city:", city);
+
+   // Using placeholders
+   connection.query(
+      `INSERT INTO Users (email, name, city)
+      VALUES (?, ?, ?)`,
+      [email, name, city],
+      function (err, results) {
+         console.log(results);
+         console.log("🚀  file: homeController.js:27  results:", results);
+         res.send("User Created");
+      }
    );
-   res.send("Created a new User!");
+
+   // INSERT INTO Users (email, name, city)
+   // VALUES ('hohoainam@gmail.com', 'hohoainam', 'TPHue');
+
+   // res.send("Created a new User!");
 };
 
 module.exports = {
