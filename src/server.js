@@ -20,13 +20,6 @@ configViewEngine(app);
 //Config Router
 app.use("/", webRouter);
 
-//CREATE CONNECTION TO THE DATABASE
-
-// query TO THE DATABASE, GET DATA
-connection.query("SELECT * FROM Users u", function (err, results, fields) {
-   // console.log(results);
-});
-
 //PORT listening
 app.listen(port, hostname, () => {
    console.log(`App listening on port ${port}`);
@@ -67,3 +60,8 @@ app.listen(port, hostname, () => {
 //Config req.body
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
+
+// query TO THE DATABASE, GET DATA
+// connection.query("SELECT * FROM Users u", function (err, results, fields) {
+//    console.log(results);
+// });

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        tr:hover {
+            background-color: #ccc;
+        }
+
+        .table-container {
+            padding: 15px 20px;
+        }
+
+        .title {
+            font-size: 25px;
+            font-weight: 600;
+            padding-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="topnav">
+        <a href="/">Home</a>
+        <a href="/create" class="active">Create User</a>
+    </div>
+
+    <div class="form-add-new">
+        <form method="POST" action="/create-user">
+            <fieldset>
+                <legend>Add New</legend>
+                <div class="input-group">
+                    <label for="">Email: </label>
+                    <input type="text" name="email" id="emailId">
+                </div>
+                <div class="input-group">
+                    <label for="">Name: </label>
+                    <input type="text" name="name" id="">
+                </div>
+                <div class="input-group">
+                    <label for="">City: </label>
+                    <input type="text" name="city" id="">
+                </div>
+                <div>
+                    <button>Save</button>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+</html>

@@ -4,11 +4,13 @@ const {
    getHomePage,
    getNewsPage,
    postCreateUser,
+   getCreatePage,
 } = require("../controllers/homeController");
 
 //Config Web-Router
 router.get("/", getHomePage);
 router.get("/news", getNewsPage);
+router.get("/create", getCreatePage);
 router.post("/create-user", postCreateUser);
 
 module.exports = router;

@@ -1,5 +1,5 @@
-const mysql = require("mysql2");
 require("dotenv").config();
+const mysql = require("mysql2");
 
 // CONNECTION TO THE DATABASE using Connection Pools
 const connection = mysql.createPool({
