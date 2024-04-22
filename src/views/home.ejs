@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homepage</title>
+    <title>Home Page</title>
     <link rel="stylesheet" href="/css/style.css">
     <style>
         table {
@@ -42,81 +42,59 @@
     </div>
 
     <div class="table-container">
-        <%= JSON.stringify(listUsers) %>
-            <div class="title">List Users</div>
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Email</th>
-                    <th>Name</th>
-                    <th>City</th>
-                    <th>Action</th>
-                </tr>
-                <tr>
-                    <td>id1</td>
-                    <td>yourEmail</td>
-                    <td>yourName</td>
-                    <td>yourCity</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>id2</td>
-                    <td>yourEmail</td>
-                    <td>yourName</td>
-                    <td>yourCity</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>id3</td>
-                    <td>yourEmail</td>
-                    <td>yourName</td>
-                    <td>yourCity</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>id4</td>
-                    <td>yourEmail</td>
-                    <td>yourName</td>
-                    <td>yourCity</td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-            </table>
-    </div>
+        <!-- <%= JSON.stringify(listUsers) %> -->
+        <div class="title">List Users</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
 
-    <!-- <div class="form-add-new">
-        <form method="POST" action="/create-user">
-            <fieldset>
-                <legend>Add New</legend>
-                <div class="input-group">
-                    <label for="">Email: </label>
-                    <input type="text" name="email" id="emailId">
-                </div>
-                <div class="input-group">
-                    <label for="">Name: </label>
-                    <input type="text" name="name" id="">
-                </div>
-                <div class="input-group">
-                    <label for="">City: </label>
-                    <input type="text" name="city" id="">
-                </div>
-                <div>
-                    <button>Save</button>
-                </div>
-            </fieldset>
-        </form>
-    </div> -->
+            <% listUsers.forEach(user=> { %>
+                <tr>
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td>
+                        <a href="/update/<%= user.id %>">Edit</a>
+                        <button>Delete</button>
+                    </td>
+                    <% }); %>
+
+                        <!-- <% for (let i=0; i < listUsers.length; i++) { %>
+                    <tr>
+                        <td>
+                            <%= listUsers[i].id %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].email %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].name %>
+                        </td>
+                        <td>
+                            <%= listUsers[i].city %>
+                        </td>
+                        <td>
+                            <button>Edit</button>
+                            <button>Delete</button>
+                        </td>
+                    </tr>
+                    <% } %> -->
+        </table>
+    </div>
 
 </body>
 

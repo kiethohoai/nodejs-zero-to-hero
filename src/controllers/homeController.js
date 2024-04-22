@@ -1,5 +1,5 @@
 const connection = require("../config/database");
-const { getAllUsers } = require("../services/CRUDService");
+const { getAllUsers, getUserById } = require("../services/CRUDService");
 
 const getHomePage = async (req, res) => {
    //Move to CRUDServce.js
@@ -8,7 +8,6 @@ const getHomePage = async (req, res) => {
    // let [results, fields] = await connectionPromise.query("SELECT * FROM Users");
 
    let results = await getAllUsers();
-   console.log("🚀 ~ results:", results);
    return res.render("home.ejs", { listUsers: results });
 };
 
@@ -27,11 +26,10 @@ const postCreateUser = async (req, res) => {
    const connectionPromise = connection.promise();
 
    // query database using promise
-   const [results, fields] = await connectionPromise.query(
+   let [results, fields] = await connectionPromise.query(
       `INSERT INTO Users (email, name, city) VALUES (?, ?, ?)`,
       [email, name, city]
    );
-   console.log("🚀 ~ results:", results);
    res.send("Create A User Successfully!");
 };
 
@@ -39,11 +37,18 @@ const getCreatePage = (req, res) => {
    res.render("create.ejs");
 };
 
+const getUpdatePage = async (req, res) => {
+   const userId = req.params.id;
+   let user = await getUserById(userId);
+   res.render("edit.ejs", { user: user });
+};
+
 module.exports = {
    getHomePage,
    getNewsPage,
    postCreateUser,
    getCreatePage,
+   getUpdatePage,
 };
 
 /////////////// BACK UP /////////////////
@@ -77,3 +82,14 @@ module.exports = {
 // connection.query("SELECT * FROM Users u", function (err, results, fields) {
 //    // console.log(results);
 // });
+
+// const getUpdatePage = async (req, res) => {
+//    const userId = req.params.id;
+//    const connectionPromise = connection.promise();
+//    let [results, fields] = await connectionPromise.query(
+//       "SELECT * FROM Users WHERE id=?",
+//       [userId]
+//    );
+//    let user = results && results.length > 0 ? results[0] : {};
+//    res.render("edit.ejs", { user: user });
+// };

@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create A User</title>
+    <title>Update A User</title>
     <link rel="stylesheet" href="/css/style.css">
     <style>
         table {
@@ -38,30 +38,31 @@
 <body>
     <div class="topnav">
         <a href="/">Home</a>
-        <a href="/create" class="active">Create User</a>
+        <a href="/create">Create User</a>
     </div>
 
     <div class="form-add-new">
         <form method="POST" action="/create-user">
             <fieldset>
-                <legend>Add New</legend>
+                <legend>Update A User</legend>
                 <div class="input-group">
                     <label for="">Email: </label>
-                    <input type="text" name="email" id="emailId">
+                    <input type="text" name="email" value="<%= user.email %>" />
                 </div>
                 <div class="input-group">
                     <label for="">Name: </label>
-                    <input type="text" name="name" id="">
+                    <input type="text" name="name" value="<%= user.name %>" />
                 </div>
-                <div class="input-group">
+                <div class=" input-group">
                     <label for="">City: </label>
-                    <input type="text" name="city" id="">
+                    <input type="text" name="city" value="<%= user.city %>" />
                 </div>
                 <div>
                     <button>Save</button>
                 </div>
             </fieldset>
         </form>
+        <%= JSON.stringify(user) %>,
     </div>
 
 </body>
