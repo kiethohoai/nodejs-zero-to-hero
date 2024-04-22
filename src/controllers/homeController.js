@@ -1,5 +1,9 @@
 const connection = require("../config/database");
-const { getAllUsers, getUserById } = require("../services/CRUDService");
+const {
+   getAllUsers,
+   getUserById,
+   updateUserById,
+} = require("../services/CRUDService");
 
 const getHomePage = async (req, res) => {
    //Move to CRUDServce.js
@@ -18,13 +22,9 @@ const getNewsPage = (req, res) => {
 const postCreateUser = async (req, res) => {
    //Get DATA at FORM
    let { email, name, city } = req.body;
-   // let email = req.body.email;
-   // let name = req.body.name;
-   // let city = req.body.city;
 
    // get a Promise wrapped instance of that pool
    const connectionPromise = connection.promise();
-
    // query database using promise
    let [results, fields] = await connectionPromise.query(
       `INSERT INTO Users (email, name, city) VALUES (?, ?, ?)`,
@@ -43,12 +43,28 @@ const getUpdatePage = async (req, res) => {
    res.render("edit.ejs", { user: user });
 };
 
+const postUpdateUser = async (req, res) => {
+   //Get DATA at FORM
+   let { userId, email, name, city } = req.body;
+   console.log("🚀 ~ userId:", userId);
+   console.log("🚀 ~ email:", email);
+   console.log("🚀 ~ name:", name);
+   console.log("🚀 ~ city:", city);
+
+   updateUserById(email, name, city, userId);
+
+   // res.send("Update A User Successfully!");
+   //go back homepage
+   res.redirect("/");
+};
+
 module.exports = {
    getHomePage,
    getNewsPage,
    postCreateUser,
    getCreatePage,
    getUpdatePage,
+   postUpdateUser,
 };
 
 /////////////// BACK UP /////////////////
@@ -65,7 +81,6 @@ module.exports = {
 //    [email, name, city],
 //    function (err, results) {
 //       console.log(results);
-//       console.log("🚀  file: homeController.js:27  results:", results);
 //       res.send("User Created");
 //    }
 // );
@@ -74,10 +89,6 @@ module.exports = {
 // get a Promise wrapped instance of that pool
 // const promisePool = connection.promise();
 // const [results, fields] = await promisePool.query("SELECT * FROM Users u");
-// console.log("🚀 ----------------------🚀");
-// console.log("🚀 + results:", results);
-// console.log("🚀 ----------------------🚀");
-
 // query TO THE DATABASE, GET DATA
 // connection.query("SELECT * FROM Users u", function (err, results, fields) {
 //    // console.log(results);
@@ -93,3 +104,12 @@ module.exports = {
 //    let user = results && results.length > 0 ? results[0] : {};
 //    res.render("edit.ejs", { user: user });
 // };
+
+// query to DB and do something!
+// const connectionPromise = connection.promise();
+// let [results, fields] = await connectionPromise.query(
+//    `UPDATE Users
+//    SET email=?, name=?, city=?
+//    WHERE ID=?`,
+//    [email, name, city, userId]
+// );

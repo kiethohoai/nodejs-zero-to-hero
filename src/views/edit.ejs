@@ -32,6 +32,10 @@
             font-weight: 600;
             padding-bottom: 10px;
         }
+
+        .input-group-id {
+            display: none;
+        }
     </style>
 </head>
 
@@ -42,9 +46,13 @@
     </div>
 
     <div class="form-add-new">
-        <form method="POST" action="/create-user">
+        <form method="POST" action="/update-user">
             <fieldset>
                 <legend>Update A User</legend>
+                <div class="input-group-id">
+                    <label for="">Id: </label>
+                    <input type="text" name="userId" value="<%= user.id %>" />
+                </div>
                 <div class="input-group">
                     <label for="">Email: </label>
                     <input type="text" name="email" value="<%= user.email %>" />
@@ -53,7 +61,7 @@
                     <label for="">Name: </label>
                     <input type="text" name="name" value="<%= user.name %>" />
                 </div>
-                <div class=" input-group">
+                <div class="input-group">
                     <label for="">City: </label>
                     <input type="text" name="city" value="<%= user.city %>" />
                 </div>
