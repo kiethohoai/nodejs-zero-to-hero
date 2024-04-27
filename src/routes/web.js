@@ -1,6 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { getHomePage, getNewsPage, postCreateUser } = require("../controllers/homeController");
+const {
+  getHomePage,
+  getNewsPage,
+  postCreateUser,
+} = require("../controllers/homeController");
 
 //Config Web-Router
 router.get("/", getHomePage);
