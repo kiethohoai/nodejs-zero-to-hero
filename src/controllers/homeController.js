@@ -10,7 +10,6 @@ const getNewsPage = (req, res) => {
 const getHomePage = async (req, res) => {
   //Get all users
   let results = await getAllUsers();
-  console.log(results);
   return res.render("home.ejs", { listUsers: results });
 };
 

@@ -60,48 +60,50 @@
                 <th>CITY</th>
                 <th>Action</th>
             </tr>
-            <tr>
-                <td>1</td>
-                <td>yourEmail</td>
-                <td>yourName</td>
-                <td>yourCity</td>
-                <td class="button-mod">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>yourEmail</td>
-                <td>yourName</td>
-                <td>yourCity</td>
-                <td class="button-mod">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>yourEmail</td>
-                <td>yourName</td>
-                <td>yourCity</td>
-                <td class="button-mod">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
-            <tr>
-                <td>4</td>
-                <td>yourEmail</td>
-                <td>yourName</td>
-                <td>yourCity</td>
-                <td class="button-mod">
-                    <button>Edit</button>
-                    <button>Delete</button>
-                </td>
-            </tr>
+
+            <% listUsers.forEach((user)=> { %>
+                <tr>
+                    <td>
+                        <%= user.id %>
+                    </td>
+                    <td>
+                        <%= user.email %>
+                    </td>
+                    <td>
+                        <%= user.name %>
+                    </td>
+                    <td>
+                        <%= user.city %>
+                    </td>
+                    <td class="button-mod">
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+                <% }); %>
+
+                    <!-- <% for (let i=0; i < listUsers.length; i++) { %>
+                <tr>
+                    <td>
+                        <%= listUsers[i].id %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].email %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].name %>
+                    </td>
+                    <td>
+                        <%= listUsers[i].city %>
+                    </td>
+                    <td class="button-mod">
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+                <% } %> -->
         </table>
-        <%= JSON.stringify(listUsers) %>
+        <!-- <%= JSON.stringify(listUsers) %> -->
     </div>
 
 </body>
