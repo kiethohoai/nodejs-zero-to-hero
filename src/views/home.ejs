@@ -36,6 +36,11 @@
             font-weight: 600;
             padding-bottom: 10px;
         }
+
+        td.button-mod {
+            position: relative;
+            right: 70px;
+        }
     </style>
 </head>
 
@@ -53,33 +58,50 @@
                 <th>EMAIL</th>
                 <th>NAME</th>
                 <th>CITY</th>
+                <th>Action</th>
             </tr>
             <tr>
                 <td>1</td>
                 <td>yourEmail</td>
                 <td>yourName</td>
                 <td>yourCity</td>
+                <td class="button-mod">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
             <tr>
                 <td>2</td>
                 <td>yourEmail</td>
                 <td>yourName</td>
                 <td>yourCity</td>
+                <td class="button-mod">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
             <tr>
                 <td>3</td>
                 <td>yourEmail</td>
                 <td>yourName</td>
                 <td>yourCity</td>
+                <td class="button-mod">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
             <tr>
                 <td>4</td>
                 <td>yourEmail</td>
                 <td>yourName</td>
                 <td>yourCity</td>
+                <td class="button-mod">
+                    <button>Edit</button>
+                    <button>Delete</button>
+                </td>
             </tr>
         </table>
-
+        <%= JSON.stringify(listUsers) %>
     </div>
 
 </body>
