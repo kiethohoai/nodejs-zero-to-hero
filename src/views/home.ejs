@@ -17,26 +17,26 @@
     </div>
 
     <div class="form-add-new">
-        <fieldset>
-            <legend>Form add new user:</legend>
-            <div class="input-group">
-                <label for="">Email: </label>
-                <input type="text">
-            </div>
-            <div class="input-group">
-                <label for="">Name: </label>
-                <input type="text">
-            </div>
-            <div class="input-group input-city">
-                <label for="">City: </label>
-                <input type="text">
-            </div>
-            <div>
-                <button>Save User</button>
-            </div>
-
-        </fieldset>
-
+        <form action="/create-user" method="POST">
+            <fieldset>
+                <legend>Add user:</legend>
+                <div class="input-group">
+                    <label for="">Email: </label>
+                    <input type="text" name="email">
+                </div>
+                <div class="input-group">
+                    <label for="">Name: </label>
+                    <input type="text" name="name">
+                </div>
+                <div class="input-group input-city">
+                    <label for="">City: </label>
+                    <input type="text" name="city">
+                </div>
+                <div>
+                    <button>Add User</button>
+                </div>
+            </fieldset>
+        </form>
     </div>
 
 </body>

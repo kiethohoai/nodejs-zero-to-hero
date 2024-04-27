@@ -10,8 +10,8 @@ const getNewsPage = (req, res) => {
 };
 
 const postCreateUser = (req, res) => {
-    console.log(">>>req.body =", req.body);
-    res.send("Create a new user!");
+    console.log("CHECK REQ.BODY", req.body);
+    res.send("Create User Successfully");
 };
 
 module.exports = {
