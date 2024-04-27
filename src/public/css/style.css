@@ -32,3 +32,18 @@
     margin: 0 auto;
     padding: 20px;
 }
+
+.input-group {
+    padding: 5px 10px;
+}
+
+button {
+    margin: 5px 10px 10px 10px;
+    position: relative;
+    left: 46px;
+}
+
+.input-city {
+    position: relative;
+    left: 11px;
+}
