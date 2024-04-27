@@ -20,11 +20,6 @@ app.use("/", webRouter);
 const port = process.env.PORT;
 const hostname = process.env.HOST_NAME;
 
-// query TO THE DATABASE, GET DATA
-connection.query("SELECT * FROM Users u", function (err, results, fields) {
-  // console.log(results);
-});
-
 //PORT listening
 app.listen(port, hostname, () => {
   console.log(`App listening on port ${port}`);

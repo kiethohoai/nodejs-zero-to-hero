@@ -9,26 +9,29 @@ const getNewsPage = (req, res) => {
   res.render("sample.ejs");
 };
 
-const postCreateUser = (req, res) => {
+const postCreateUser = async (req, res) => {
   //req.body
   let { email, name, city } = req.body;
 
-  //query DB
-  connection.query(
+  //query database using Promise
+  const connectionPromise = connection.promise();
+  let [results, fields] = await connectionPromise.query(
     `INSERT INTO Users  (email, name, city)
-    VALUES (?, ?, ?)`,
+      VALUES (?, ?, ?)`,
     [email, name, city],
-    function (err, results) {
-      console.log(results);
-    },
   );
 
   //Message
   res.send("Create User Successfully");
 };
 
+const getCreatePage = (req, res) => {
+  res.render("create.ejs");
+};
+
 module.exports = {
   getHomePage,
   getNewsPage,
   postCreateUser,
+  getCreatePage,
 };
