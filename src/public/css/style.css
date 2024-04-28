@@ -37,12 +37,6 @@
   padding: 5px 10px;
 }
 
-button {
-  margin: 5px 10px 10px 10px;
-  position: relative;
-  left: 46px;
-}
-
 .input-city {
   position: relative;
   left: 11px;
@@ -52,4 +46,9 @@ button {
   display: none;
   position: relative;
   left: 21px;
+}
+
+td.button-container {
+  display: flex;
+  gap: 15px;
 }
