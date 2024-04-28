@@ -1,5 +1,9 @@
 const connection = require("../config/database");
-const { getAllUsers, getUsersById } = require("../service/CRUDService");
+const {
+  getAllUsers,
+  getUsersById,
+  updateUserById,
+} = require("../service/CRUDService");
 
 //NEW PAGE
 const getNewsPage = (req, res) => {
@@ -44,10 +48,23 @@ const getUpdatePage = async (req, res) => {
   res.render("update.ejs", { user: user });
 };
 
+//UPDATE USER BY ID
+const postUpdateUser = async (req, res) => {
+  //Get data at form via "name" property & "req.body"
+  let { userId, email, name, city } = req.body;
+
+  //Update user via id in DB
+  await updateUserById(email, name, city, userId);
+
+  //Go to HomePage
+  res.redirect("/");
+};
+
 module.exports = {
   getHomePage,
   getNewsPage,
   postCreateUser,
   getCreatePage,
   getUpdatePage,
+  postUpdateUser,
 };

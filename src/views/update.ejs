@@ -15,9 +15,13 @@
     </div>
 
     <div class="form-add-new">
-        <form action="/create-user" method="POST">
+        <form action="/update-user" method="POST">
             <fieldset>
                 <legend>Update user:</legend>
+                <div class="input-group input-id">
+                    <label for="">ID: </label>
+                    <input type="text" name="userId" value="<%= user.id %>">
+                </div>
                 <div class="input-group">
                     <label for="">Email: </label>
                     <input type="text" name="email" value="<%= user.email %>">
@@ -31,7 +35,7 @@
                     <input type="text" name="city" value="<%= user.city %>">
                 </div>
                 <div>
-                    <button>Add User</button>
+                    <button>Update User</button>
                 </div>
             </fieldset>
             <!-- <%= JSON.stringify(user) %> -->

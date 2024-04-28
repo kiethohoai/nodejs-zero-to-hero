@@ -23,7 +23,19 @@ const getUsersById = async (userId) => {
   return user;
 };
 
+const updateUserById = async (email, name, city, userId) => {
+  //Update user via id in DB
+  const connectionPromise = connection.promise();
+  let [results, fields] = await connectionPromise.query(
+    `UPDATE Users
+  SET email=?, name=?, city=?
+  WHERE id=?`,
+    [email, name, city, userId],
+  );
+};
+
 module.exports = {
   getAllUsers,
   getUsersById,
+  updateUserById,
 };
