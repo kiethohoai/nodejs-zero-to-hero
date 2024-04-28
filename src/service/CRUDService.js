@@ -7,6 +7,23 @@ const getAllUsers = async () => {
   return results;
 };
 
+const getUsersById = async (userId) => {
+  //query database using Promise & get User by Id
+  const connectionPromise = connection.promise();
+  let [results, fields] = await connectionPromise.query(
+    `SELECT * FROM Users 
+    WHERE id=?`,
+    [userId],
+  );
+
+  //Handle results
+  let user = results && results.length > 0 ? results[0] : {};
+
+  //Return user
+  return user;
+};
+
 module.exports = {
   getAllUsers,
+  getUsersById,
 };
