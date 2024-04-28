@@ -34,6 +34,7 @@ const getCreatePage = (req, res) => {
 };
 
 const getUpdatePage = (req, res) => {
+  console.log("🚀 CHECK => req.params =", req.params);
   res.render("update.ejs");
 };
 
