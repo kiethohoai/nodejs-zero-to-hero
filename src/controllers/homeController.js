@@ -3,6 +3,7 @@ const {
   getAllUsers,
   getUsersById,
   updateUserById,
+  deleteUserById,
 } = require("../service/CRUDService");
 
 //NEW PAGE
@@ -30,7 +31,7 @@ const postCreateUser = async (req, res) => {
     [email, name, city],
   );
 
-  res.send("Create User Successfully");
+  res.redirect("/");
 };
 
 const getCreatePage = (req, res) => {
@@ -66,8 +67,13 @@ const postDeleteUser = async (req, res) => {
   res.render("delete.ejs", { user: user });
 };
 
-const postHandleRemoveUser = (req, res) => {
-  res.send("Account Deleted!");
+const postHandleRemoveUser = async (req, res) => {
+  let userId = req.body.userId;
+
+  //query database & delete user by id
+  await deleteUserById(userId);
+
+  res.redirect("/");
 };
 
 module.exports = {
